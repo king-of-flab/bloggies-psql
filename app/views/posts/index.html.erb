@@ -1,2 +1,42 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>All posts by <%= current_user.name %></h1>
+
+<!-- <%= @news_data.inspect %> -->
+<h1>News from API</h1>
+<ul>
+<% @news_data["articles"].each do |article| %>
+  <li>
+    <%= image_tag article["urlToImage"] %>
+    <h3><%= article["title"] %></h3>
+    <p><%= article["description"] %></p>
+  </li>
+<% end %>
+</ul>
+
+<!-- <ul> -->
+<%# @all_posts.each_with_index do |post, index| %>
+<%# @all_posts.each do |post| %>
+  <%# if post.id %>
+    <!-- <li> -->
+      <!-- <h4><%#= post.title %></h4> -->
+      <!-- <p><%#= post.content %></p> -->
+
+      <%#= link_to "View", post_path(post) %>
+      <%#= link_to "Delete", post_path(post), method: :delete %>
+      <%#= link_to "Update", edit_post_path(post) %>
+    <!-- </li> -->
+  <%# end %>
+<%# end %>
+<!-- </ul> -->
+
+<h2>Create new post</h2>
+<%= form_for @new_post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+<br>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+<br>
+<%= f.hidden_field :user_id %>
+  <%= f.submit %>
+
+<% end %>

@@ -1,0 +1,11 @@
+<%= form_for @edited_post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content %>
+  <!-- <%= f.text_area :content, size: "80x8" %> -->
+  <%= f.text_field :content %>
+
+
+  <%= f.submit %>
+<% end %>

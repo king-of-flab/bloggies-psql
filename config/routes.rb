@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get '/about', to: 'static#about'
 
+  
+
   devise_for :users,
               path: '',
               path_names: {

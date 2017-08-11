@@ -1,0 +1,9 @@
+<h1><%= @post.title %></h1>
+<small>
+  Author: <%= @post.user.name %> (<%= @post.created_at %>)
+</small>
+<p>
+  <%= @post.content %>
+</p>
+
+<%= link_to "My posts", posts_path %>
